@@ -14,4 +14,4 @@ Running the test files will create 2 images: one for encrypting the image, and t
 
 ## Example
 
-![alt tag](https://en.wikipedia.org/wiki/File:Tux.jpg) ![alt tag](https://en.wikipedia.org/wiki/File:Tux_ecb.jpg) ![alt tag](https://en.wikipedia.org/wiki/File:Tux_secure.jpg)
+![alt tag](https://upload.wikimedia.org/wikipedia/commons/5/56/Tux.jpg) ![alt tag](https://upload.wikimedia.org/wikipedia/commons/f/f0/Tux_ecb.jpg) ![alt tag](https://upload.wikimedia.org/wikipedia/commons/a/a0/Tux_secure.jpg)
