@@ -1,13 +1,17 @@
-3 java files existed
 
-- TEA.java : contains the implementation of TEA algorithms and CBC encryption and decryption
-- testTEA.java: tests ECB mode by using TEA algorithms 
-- testTEAcbc.java: tests CBC mode by using TEA algorithms
+** Tiny Encryption Algorithm
 
+This project implements tiny encryption algorithms with in two cipher block mdoes: CBC mode and ECB mode. 
 
+## Note 
 
-First, make sure to change the path of the image depending on where you put the imagein the java files (testTEA.java & testTEAcbc.java).
+You can use and .bmp image. The image I used in the test might not be clear in ECB mode because I converted it by an online tool.
 
-to Test ECB mode > open testTEA.java and run the code.
+## Tests
 
-to Test CBC mode > open testTEAcbc.java and run the code.
+There are 2 test files: testCBCmode.java and testECBmode.java. To encrypt an image in either modes, make sure to change the path to the image in the source code, then compile and run the program.
+Running the test files will create 2 images: one for encrypting the image, and the other for decrypting the image that was just encrypted.
+
+## Examples 
+
+![alt tag](https://github.com/iMohannad/TinyEncryptionAlgorithm/tree/master/image/Tux.bmp) ![alt tag](https://github.com/iMohannad/TinyEncryptionAlgorithm/tree/master/image/ECBencrypt.bmp) ![alt tag](https://github.com/iMohannad/TinyEncryptionAlgorithm/tree/master/image/CBCencrypt.bmp)
