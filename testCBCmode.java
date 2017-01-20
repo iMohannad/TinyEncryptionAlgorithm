@@ -9,16 +9,16 @@ public class testCBCmode{
 	
 	public static void main(String[] args) throws IOException{
 		Random rand = new Random();
-		int[] key = {10,12,13,14};				//instantiating a key
-		TEA tea = new TEA(key);					//instantiating a TEA class
+		int[] key = {10,12,13,14};						//instantiating a key
+		CBCmode cbc = new CBCmode(key);					//instantiating a TEA class
 		
 		int[] img = new int[2];
 		
 		int IV[] = {rand.nextInt(),rand.nextInt()};		//generating a random IV
 		
 		/* Change the path if you install the image on different path */ 
-		FileInputStream imgIn = new FileInputStream("C:\\Users\\sayed\\Desktop\\workspace\\Security\\src\\image\\img.bmp");
-		FileOutputStream imgOut = new FileOutputStream("C:\\Users\\sayed\\Desktop\\workspace\\Security\\src\\image\\resultCBC.bmp");
+		FileInputStream imgIn = new FileInputStream("image\\Tux.bmp");
+		FileOutputStream imgOut = new FileOutputStream("image\\CBCencrypt.bmp");
 		
 		DataInputStream dataIn = new DataInputStream(imgIn);
 		DataOutputStream dataOut = new DataOutputStream(imgOut);
@@ -47,11 +47,11 @@ public class testCBCmode{
 				check = true;
 				img[1] = dataIn.readInt();
 				if(firstTime){		//if true, the block is passed with IV to be encrypted by TEA algorithm
-					cipher = tea.encryptCBC(img, IV);
+					cipher = cbc.encrypt(img, IV);
 					firstTime = false;		//set firstTime to false sense IV is only encrypted in the first block
 				}
 				else
-					cipher = tea.encryptCBC(img, cipher);		//pass the block with the previous encrypted block
+					cipher = cbc.encrypt(img, cipher);		//pass the block with the previous encrypted block
 				
 				dataOut.writeInt(cipher[0]);
 				dataOut.writeInt(cipher[1]);
@@ -69,8 +69,8 @@ public class testCBCmode{
 		dataOut.close();
 		
 		/*~~~~~~~~~~~~~~~~~~~~~~~Decrypting the Image ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-		DataInputStream dataIn1 = new DataInputStream(new FileInputStream("C:\\Users\\sayed\\Desktop\\workspace\\Security\\src\\image\\resultCBC.bmp"));
-		DataOutputStream dataOut1 = new DataOutputStream(new FileOutputStream("C:\\Users\\sayed\\Desktop\\workspace\\Security\\src\\image\\unencryptcbc.bmp"));
+		DataInputStream dataIn1 = new DataInputStream(new FileInputStream("image\\CBCencrypt.bmp"));
+		DataOutputStream dataOut1 = new DataOutputStream(new FileOutputStream("image\\CBCdecrypt.bmp"));
 		
 		for(int i=0;i<10;i++){
 			if(dataIn1.available() > 0){
@@ -93,10 +93,10 @@ public class testCBCmode{
 				img[1] = dataIn1.readInt();
 				
 				if(firstTime){							//if true, the first block is passed with IV to be decrytped
-					plain = tea.decryptCBC(img,IV);
+					plain = cbc.decrypt(img,IV);
 					firstTime = false;					//set first time to false
 				}else									//if false, the block is passed with the previously encrypted block
-					plain = tea.decryptCBC(img,copyCipher);		
+					plain = cbc.decrypt(img,copyCipher);		
 				
 				dataOut1.writeInt(plain[0]);
 				dataOut1.writeInt(plain[1]);

@@ -8,14 +8,14 @@ public class testECBmode{
 	public static void main(String[] args) throws IOException{
 		
 		int[] key = {10,12,13,14};		//Instantiating a key
-		ECBmode cbc = new ECBmode(key);			//instantiating a TEA class
+		ECBmode ecb = new ECBmode(key);			//instantiating a TEA class
 		
 		int[] img = new int[2];			//img Variable will contain the block to be encrypted
 		int left,right;
 		
 		/* Change the path if you install the image on different path */ 
-		FileInputStream imgIn = new FileInputStream("C:\\Users\\mohan\\Desktop\\TinyEncryptionAlgorithm\\image\\img.bmp");
-		FileOutputStream imgOut = new FileOutputStream("C:\\Users\\mohan\\Desktop\\TinyEncryptionAlgorithm\\image\\ECBencrypt.bmp");
+		FileInputStream imgIn = new FileInputStream("image\\Tux.bmp");
+		FileOutputStream imgOut = new FileOutputStream("image\\ECBencrypt.bmp");
 		
 		DataInputStream dataIn = new DataInputStream(imgIn);
 		DataOutputStream dataOut = new DataOutputStream(imgOut);
@@ -42,7 +42,7 @@ public class testECBmode{
 				img[0] = dataIn.readInt();		//left sub block 
 				check = true;
 				img[1] = dataIn.readInt();		//right sub block
-				cipher = cbc.encrypt(img);		//Passing the block to TEA algorithm to encrypt it
+				cipher = ecb.encrypt(img);		//Passing the block to TEA algorithm to encrypt it
 				dataOut.writeInt(cipher[0]);	//writing back the encrypted block
 				dataOut.writeInt(cipher[1]);
 				check = false;
@@ -59,8 +59,8 @@ public class testECBmode{
 		dataOut.close();
 		
 		/*~~~~~~~~~~Decrypting the Image ~~~~~~~~~~~~~~~~~~*/
-		DataInputStream dataIn1 = new DataInputStream(new FileInputStream("C:\\Users\\mohan\\Desktop\\TinyEncryptionAlgorithm\\image\\ECBencrypt.bmp"));
-		DataOutputStream dataOut1 = new DataOutputStream(new FileOutputStream("C:\\Users\\mohan\\Desktop\\TinyEncryptionAlgorithm\\image\\ECBdecrypt.bmp"));
+		DataInputStream dataIn1 = new DataInputStream(new FileInputStream("image\\ECBencrypt.bmp"));
+		DataOutputStream dataOut1 = new DataOutputStream(new FileOutputStream("image\\ECBdecrypt.bmp"));
 		
 		for(int i=0;i<10;i++){
 			if(dataIn1.available() > 0){
@@ -78,7 +78,7 @@ public class testECBmode{
 				img[0] = dataIn1.readInt();
 				check = true;
 				img[1] = dataIn1.readInt();
-				plain = cbc.decrypt(img);
+				plain = ecb.decrypt(img);
 				dataOut1.writeInt(plain[0]);
 				dataOut1.writeInt(plain[1]);
 				check = false;
