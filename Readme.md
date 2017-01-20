@@ -14,4 +14,4 @@ Running the test files will create 2 images: one for encrypting the image, and t
 
 ## Example
 
-![alt tag](https://github.com/iMohannad/TinyEncryptionAlgorithm/tree/master/image/Tux.bmp?raw=true) ![alt tag](https://github.com/iMohannad/TinyEncryptionAlgorithm/tree/master/image/ECBencrypt.bmp?raw=true) ![alt tag](https://github.com/iMohannad/TinyEncryptionAlgorithm/tree/master/image/CBCencrypt.bmp?raw=true)
+![alt tag](http://github.com/iMohannad/TinyEncryptionAlgorithm/blob/master/image/Tux.bmp?raw=true) ![alt tag](http://github.com/iMohannad/TinyEncryptionAlgorithm/tree/master/image/ECBencrypt.bmp?raw=true) ![alt tag](http://github.com/iMohannad/TinyEncryptionAlgorithm/tree/master/image/CBCencrypt.bmp?raw=true)
