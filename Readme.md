@@ -1,7 +1,7 @@
 
 ## Tiny Encryption Algorithm
 
-This project implements tiny encryption algorithms with in two cipher block mdoes: CBC mode and ECB mode. 
+This project implements tiny encryption algorithms with two modes of operation: CBC mode and ECB mode. 
 
 ## Note 
 
