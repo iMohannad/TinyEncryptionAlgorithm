@@ -3,7 +3,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Random;
 import java.io.*;
-public class testTEAcbc{
+
+public class testCBCmode{
 
 	
 	public static void main(String[] args) throws IOException{
